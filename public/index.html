@@ -1,0 +1,30 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1 id="output">Y-ellow</h1>
+    <input id=name />
+    <button id="sendBtn">Say hello</button>
+</body>
+
+<script>
+    
+    let inputText = document.getElementById("name");
+    let output = document.getElementById("output");
+    let sendBtn = document.getElementById("sendBtn");
+    
+    sendBtn.onclick = greet;
+    
+    function greet() {
+        fetch("/greet?navn=" + inputText.value).then(res => {
+           return res.text();
+        }).then(res => {
+           output.innerHTML = res;
+        });
+    }
+    
+</script>
+
+</html>
