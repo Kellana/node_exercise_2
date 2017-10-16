@@ -10,26 +10,18 @@ app.use(express.static('public'))
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
-})
+});
 
 app.get('/greet', function (req, res) {
     
     let randomIndex = Math.floor(Math.random()*greetings.length);
 
     res.send(greetings[randomIndex] + ", " + req.query.navn);
-})
-
-/*app.get('/greet/:id', function (req, res) {
-  
-    let randomIndex = Math.floor(Math.random()*greetings.length);
- //   let greetingsname = greetings[randomIndex] + " " + req.params.id;
-
-   res.send("greet" + " " + req.params.id);
-}) */
+});
 
 app.listen(app.get("port"), function () {
   console.log('Example app listening on port 8080!')
-})
+});
 
 
 
